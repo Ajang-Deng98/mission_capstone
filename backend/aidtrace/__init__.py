@@ -1,0 +1,1 @@
+# AidTrace app initialization

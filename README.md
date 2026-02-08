@@ -291,6 +291,8 @@ Frontend will run on: **http://localhost:3000**
 
 ##  Design & User Interface
 
+**Figma Design Link**: [AidTrace South Sudan - Figma Design](https://www.figma.com/design/BkYxL4qnwZEuQZjkpCwasu/AIDTRACE_SOUTH-SUDAN?node-id=0-1&p=f&t=pQf38WysDv9eS6Pe-0)
+
 ### Design Principles
 - **Accessibility First**: WCAG 2.1 compliant with proper contrast ratios
 - **Mobile Responsive**: Breakpoints at 640px, 768px, 1024px, 1280px

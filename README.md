@@ -1,8 +1,8 @@
 # AidTrace South Sudan / تتبع المساعدات جنوب السودان
 
-## 📋 Project Description
+##  Project Description
 
-AidTrace South Sudan is a production-ready full-stack web application designed to bring transparency and accountability to humanitarian aid distribution in South Sudan. The platform leverages blockchain technology (Ethereum Sepolia Testnet) to create an immutable record of all aid transactions, ensuring donors can track their contributions and beneficiaries receive verified assistance.
+AidTrace South Sudan is a full-stack web application designed to bring transparency and accountability to humanitarian aid distribution in South Sudan. The platform leverages blockchain technology (Ethereum Sepolia Testnet) to create an immutable record of all aid transactions, ensuring donors can track their contributions and beneficiaries receive verified assistance.
 
 ### Key Features
 - **Blockchain Verification**: Every transaction is cryptographically hashed and stored on Ethereum Sepolia testnet
@@ -15,7 +15,7 @@ AidTrace South Sudan is a production-ready full-stack web application designed t
 ### Problem Statement
 Humanitarian aid in South Sudan faces challenges with transparency, accountability, and tracking. Donors lack visibility into how their funds are used, and organizations struggle with efficient reporting. AidTrace solves this by providing a transparent, blockchain-verified platform for aid tracking.
 
-## 🔄 Project Lifecycle & Communication Flow
+##  Project Lifecycle & Communication Flow
 
 ### Step-by-Step Workflow
 
@@ -113,9 +113,9 @@ Field Officer Distributes
 | Distribution Recorded | ✅ Yes | ✅ Yes | ✅ Yes (in reports) | ✅ Yes (own records) |
 | Report Submitted | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes (own org) |
 
-## 🔗 GitHub Repository
+##  GitHub Repository
 
-**Repository URL**: [https://github.com/yourusername/AidTrace_South_Sudan](https://github.com/yourusername/AidTrace_South_Sudan)
+**Repository URL**: [https://github.com/Ajang-Deng98/mission_capstone.git]
 
 ## 🛠️ Technology Stack
 
@@ -147,7 +147,7 @@ Field Officer Distributes
 - **Name**: aidtrace_ss
 - **Models**: User, Organisation, Project, FundingTransaction, Report, VerificationRecord, AuditLog, AidDistribution
 
-## 🚀 Environment Setup & Installation
+##  Environment Setup & Installation
 
 ### Prerequisites
 - Python 3.8 or higher
@@ -157,7 +157,7 @@ Field Officer Distributes
 
 ### Step 1: Clone Repository
 ```bash
-git clone https://github.com/yourusername/AidTrace_South_Sudan.git
+git clone https://github.com/Ajang-Deng98/mission_capstone.git
 cd AidTrace_South_Sudan
 ```
 
@@ -216,17 +216,10 @@ npm start
 
 Frontend will run on: **http://localhost:3000**
 
-## 👥 User Accounts & Credentials
+##  User Accounts & Credentials
 
-### Test Accounts
-| Role | Username | Password | Access Level |
-|------|----------|----------|--------------|
-| Admin | admin | AidTrace2024! | Full system access, user management, blockchain verification |
-| Donor | donor1 | Donor2024! | Browse projects, fund projects, view reports |
-| Organisation | org1 | Org2024! | Create projects, submit reports, manage distributions |
-| Field Officer | field1 | Field2024! | Record distributions, submit field reports, verify aid delivery |
 
-## 🏗️ Database Schema
+##  Database Schema
 
 ### Core Models
 
@@ -258,7 +251,7 @@ Frontend will run on: **http://localhost:3000**
 - created_at (DateTime)
 ```
 
-#### FundingTransaction Model
+#### Funding Transaction Model
 ```python
 - id (Primary Key)
 - project_id (Foreign Key)
@@ -296,7 +289,7 @@ Frontend will run on: **http://localhost:3000**
 - blockchain_hash (String)
 ```
 
-## 🎨 Design & User Interface
+##  Design & User Interface
 
 ### Design Principles
 - **Accessibility First**: WCAG 2.1 compliant with proper contrast ratios
@@ -352,7 +345,7 @@ Error Red: #EF4444
 Gray Scale: #F9FAFB to #111827
 ```
 
-## 🌐 API Endpoints
+##  API Endpoints
 
 ### Authentication
 ```
@@ -404,7 +397,7 @@ GET /api/dashboard/stats/         - Get dashboard statistics
 GET /api/dashboard/analytics/     - Get analytics data
 ```
 
-## 🔗 Blockchain Integration
+##  Blockchain Integration
 
 ### How It Works
 1. **Transaction Creation**: When a funding transaction or report is created, the system generates a cryptographic hash
@@ -431,7 +424,7 @@ tx_hash = contract.functions.storeHash(blockchain_hash).transact()
 https://sepolia.etherscan.io/tx/{tx_hash}
 ```
 
-## 📊 Real Data Examples
+##  Real Data Examples
 
 ### Organizations
 - World Food Programme South Sudan
@@ -457,37 +450,35 @@ https://sepolia.etherscan.io/tx/{tx_hash}
    - Status: In Progress
    - Beneficiaries: 800 students
 
-## 🚀 Deployment Plan
+##  Deployment Plan
 
 ### Current Environment
-- **Development**: Local (localhost:3000 frontend, localhost:8000 backend)
+- **Development**: Local (localhost:3000 frontend, localhost:8000 backend) but should change to Netlify and Render
 - **Database**: PostgreSQL local instance
-- **Blockchain**: Sepolia Testnet (already deployed)
+- **Blockchain**: Sepolia Testnet 
 
 ### Production Deployment Strategy
 
 #### Phase 1: Cloud Infrastructure Setup
-**Backend Deployment (AWS/Heroku/DigitalOcean)**
-```bash
-# Option 1: AWS Elastic Beanstalk
-eb init -p python-3.8 aidtrace-backend
-eb create aidtrace-production
-eb deploy
+**Backend Deployment (Render)**
+1. Create account at https://render.com
+2. Connect GitHub repository
+3. Create new Web Service
+4. Configure build settings:
+   - Build Command: `pip install -r requirements.txt`
+   - Start Command: `gunicorn backend.wsgi:application`
+5. Add environment variables (DATABASE_URL, SECRET_KEY, etc.)
+6. Deploy automatically on git push
 
-# Option 2: Heroku
-heroku create aidtrace-backend
-git push heroku main
-heroku run python manage.py migrate
-```
-
-**Frontend Deployment (Vercel/Netlify)**
-```bash
-# Vercel
-vercel --prod
-
-# Netlify
-netlify deploy --prod
-```
+**Frontend Deployment (Netlify)**
+1. Create account at https://netlify.com
+2. Connect GitHub repository
+3. Configure build settings:
+   - Base Directory: `frontend`
+   - Build Command: `npm run build`
+   - Publish Directory: `frontend/build`
+4. Add environment variables (REACT_APP_API_URL, etc.)
+5. Deploy automatically on git push
 
 #### Phase 2: Database Migration
 ```bash
@@ -518,11 +509,6 @@ REACT_APP_BLOCKCHAIN_CONTRACT=0x742d35Cc6634C0532925a3b8D404d3aAB7C906C8
 - Enable SSL/TLS certificates (Let's Encrypt)
 - Setup CDN (CloudFlare)
 
-#### Phase 5: Monitoring & Scaling
-- **Monitoring**: AWS CloudWatch / Datadog
-- **Error Tracking**: Sentry
-- **Analytics**: Google Analytics
-- **Scaling**: Auto-scaling groups, load balancers
 
 ### Deployment Checklist
 - [ ] Environment variables configured
@@ -536,7 +522,7 @@ REACT_APP_BLOCKCHAIN_CONTRACT=0x742d35Cc6634C0532925a3b8D404d3aAB7C906C8
 - [ ] Backup strategy implemented
 - [ ] Security audit completed
 
-## 🔒 Security Features
+##  Security Features
 
 - **JWT Authentication**: Secure token-based authentication with refresh tokens
 - **Password Hashing**: bcrypt with salt rounds
@@ -547,7 +533,7 @@ REACT_APP_BLOCKCHAIN_CONTRACT=0x742d35Cc6634C0532925a3b8D404d3aAB7C906C8
 - **Rate Limiting**: API throttling (100 requests/hour per user)
 - **Blockchain Verification**: Immutable transaction records
 
-## 🧪 Testing
+##  Testing
 
 ### Backend Tests
 ```bash
@@ -566,87 +552,55 @@ Use Postman collection or curl:
 ```bash
 # Login
 curl -X POST http://localhost:8000/api/auth/login/ \
-  -H "Content-Type: application/json" \
-  -d '{"username":"donor1","password":"Donor2024!"}'
+
 
 # Get projects
 curl -X GET http://localhost:8000/api/projects/ \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN"
+
 ```
 
-## 📱 Screenshots
+##  Screenshots
 
 ### Landing Page
-![Landing Page](screenshots/landing.png)
-
-### Admin Dashboard
-![Admin Dashboard](screenshots/admin-dashboard.png)
+![Landing Page](screenshots/home_page.png)
 
 ### Donor Dashboard
-![Donor Dashboard](screenshots/donor-dashboard.png)
+![Donor Dashboard](screenshots/donor_page.png)
 
 ### Organisation Dashboard
-![Organisation Dashboard](screenshots/org-dashboard.png)
+![Organisation Dashboard](screenshots/ngo_page.png)
 
 ### Field Officer Dashboard
-![Field Officer Dashboard](screenshots/field-dashboard.png)
+![Field Officer Dashboard](screenshots/fieldofficer_page.png)
 
 ### Project Details
-![Project Details](screenshots/project-details.png)
+![Project Details](screenshots/projecdetail_page.png)
 
-### Blockchain Verification
-![Blockchain Verification](screenshots/blockchain-verify.png)
 
-## 🎥 Video Demonstration
 
-**Video Link**: [AidTrace South Sudan Demo](https://youtu.be/your-video-link)
+##  Video Demonstration
 
-**Duration**: 8 minutes
+**Video Link**: [AidTrace South Sudan Demo](https://youtu.be/HUUlCpHv1zI)
 
-**Contents**:
-1. System overview and login (1 min)
-2. Admin dashboard - User and project management (2 min)
-3. Donor dashboard - Browse and fund projects (2 min)
-4. Organisation dashboard - Create project and submit reports (2 min)
-5. Field Officer dashboard - Record distributions (1 min)
-6. Blockchain verification on Etherscan (1 min)
+**Duration**: 9 minutes
 
-## 📈 Future Enhancements
 
-- Mobile applications (iOS/Android)
-- SMS notifications for beneficiaries
-- GPS tracking for aid distribution
-- Multi-currency support
-- Advanced analytics with AI/ML
-- Integration with other humanitarian platforms
-- Mainnet deployment (Ethereum/Polygon)
-- Multi-signature wallet support
+##  Developer Information
 
-## 👨‍💻 Developer Information
-
-**Developer**: Ajang Chol
+**Developer**: Ajang Deng
 **Institution**: ALU
 **Course**: Capstone Project
-**Date**: February 2024
 
-## 📄 License
+##  License
 
 This project is developed for educational purposes as part of a capstone project.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - South Sudan humanitarian organizations for real-world context
 - Ethereum Foundation for blockchain infrastructure
 - Open-source community for frameworks and libraries
 
-## 📞 Support & Contact
-
-For questions or issues:
-- **Email**: a.deng3@alustudent.com
-- **GitHub Issues**: [Repository Issues](https://github.com/yourusername/AidTrace_South_Sudan/issues)
-
 ---
 
-**Last Updated**: February 2024
-**Version**: 1.0.0
-**Status**: Production Ready ✅
+Thank You.

@@ -625,9 +625,8 @@ curl -X GET http://localhost:8000/api/projects/ \
 ## 👨‍💻 Developer Information
 
 **Developer**: Ajang Chol
-**Institution**: [Your University Name]
+**Institution**: ALU
 **Course**: Capstone Project
-**Supervisor**: [Supervisor Name]
 **Date**: February 2024
 
 ## 📄 License
@@ -643,7 +642,7 @@ This project is developed for educational purposes as part of a capstone project
 ## 📞 Support & Contact
 
 For questions or issues:
-- **Email**: ajangchol@example.com
+- **Email**: a.deng3@alustudent.com
 - **GitHub Issues**: [Repository Issues](https://github.com/yourusername/AidTrace_South_Sudan/issues)
 
 ---
